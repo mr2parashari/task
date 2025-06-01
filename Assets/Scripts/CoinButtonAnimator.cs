@@ -12,6 +12,7 @@ public class CoinButtonAnimation : MonoBehaviour
     private void Start()
     {
        
+
         if (coinButton != null)
         {
            
@@ -24,18 +25,14 @@ public class CoinButtonAnimation : MonoBehaviour
     }
 
     
-    private void AnimateButton()
+    public void AnimateButton()
     {
-    
+        transform.DOKill();
         coinButton.transform.DOScale(bounceScale, bounceDuration)  
             .SetLoops(bounceLoops, LoopType.Yoyo) 
-            .SetEase(Ease.OutBounce);  
+            .SetEase(Ease.OutBounce);
+        Debug.Log("anime");
     }
 
-    
-    public void OnButtonClicked()
-    {
-        
-        coinButton.transform.DOScale(1f, bounceDuration);  
-    }
+   
 }
